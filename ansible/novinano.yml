@@ -1,0 +1,8 @@
+---
+- hosts: novinano_servers
+  remote_user: dimalenchuk
+  become: yes
+  become_method: sudo
+  roles:
+   - mysql
+   - php
