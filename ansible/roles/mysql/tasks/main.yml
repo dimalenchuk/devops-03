@@ -1,2 +1,21 @@
 ---
+  - name: install mysql
+    apt: name={{ item }}
+         update_cache=yes
+         state=latest
+    with_items:
+     - mysql-server
+     - python3-pymysql
+  - name: create database called 'wordpress'
+    community.mysql.mysql_db:
+      login_unix_socket: /var/run/mysqld/mysqld.sock
+      name: devops-03
+      state: present
+  - name: create db user with all privileges
+    community.mysql.mysql_user:
+      login_unix_socket: /var/run/mysqld/mysqld.sock
+      name: dimalenchuk
+      password: password
+      priv: '*.*:ALL,GRANT'
+      state: present
 # tasks file for mysql
