@@ -1,2 +1,7 @@
 ---
+  - name: install apache
+    apt: name=apache2
+         update_cache=yes
+         state=latest
+
 # tasks file for apache
