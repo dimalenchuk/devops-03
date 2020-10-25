@@ -1,2 +1,6 @@
 ---
+  - name: install php and php modules
+    apt: name=php
+         update_cache=yes
+         state=latest
 # tasks file for php
